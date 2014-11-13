@@ -16,6 +16,18 @@
         <br />
         <asp:Label ID="lblMessage" runat="server"></asp:Label>
         <br />
+        <br />
+        Please upload your file here:<br />
+        <asp:FileUpload ID="FileUpload1" runat="server" />
+        <br />
+        <asp:Button ID="btnUpload" runat="server" Enabled="False" OnClick="btnUpload_Click" Text="Upload" />
+        <br />
+        <br />
+        <asp:Button ID="btnContinue" runat="server" OnClick="btnContinue_Click" Text="Continue" Visible="False" />
+        <br />
+        <br />
+        Click below in order to select from the community shared BVH files:<br />
+        <asp:Button ID="btnChoose" runat="server" OnClick="btnChoose_Click" Text="Choose" />
      
     </div>
     </form>
