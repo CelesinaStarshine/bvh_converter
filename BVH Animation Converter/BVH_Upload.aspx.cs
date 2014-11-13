@@ -13,28 +13,12 @@ namespace BVH_Animation_Converter
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Timer MyTimer = new Timer();
-            MyTimer.Interval = 5;
-            MyTimer.Tick += new EventHandler<System.EventArgs>(MyTimer_Tick);
-            MyTimer.Enabled = true;
-        }
-
-        private void MyTimer_Tick(object sender, EventArgs e)
-        {
-            if(FileUpload1.HasFile)
-            {
-                btnUpload.Enabled = true;
-            }
-            else
-            {
-                btnUpload.Enabled = false;
-            }
         }
 
         void saveFile(HttpPostedFile file)
         {
             //Specify the path to save the uploaded file to.
-            string savePath = Server.MapPath("Files");
+            string savePath = Server.MapPath("Files") + "//";
 
             //Get the name of the file to upload
             string fileName = FileUpload1.FileName;
@@ -45,6 +29,10 @@ namespace BVH_Animation_Converter
             //Create a temporary file name to use for checking duplicates
             string tempfilename = "";
 
+            //Create a temporary extension string for the file
+            string extension = System.IO.Path.GetExtension(pathToCheck);
+            fileName = fileName.Substring(0, fileName.Length - extension.Length);
+
             //Check to see if a file already exists with the
             //same name as the file to upload
             if (System.IO.File.Exists(pathToCheck))
@@ -54,7 +42,7 @@ namespace BVH_Animation_Converter
                 {
                     //if a file with this name already exists,
                     //sufix the filename with a number.
-                    tempfilename = fileName + "_" + counter.ToString();
+                    tempfilename = fileName + "_" + counter.ToString() + extension;
                     pathToCheck = savePath + tempfilename;
                     counter++;
                 }
@@ -63,11 +51,17 @@ namespace BVH_Animation_Converter
 
                 //Notify the user that the file name was changed.
                 lblMessage.Text = "A file with the same name already exists." + "<br />Your file was successfully saved as: " + fileName;
+                lblMessage.ForeColor = System.Drawing.Color.Green;
             }
             else
             {
                 //Notify the user that the file was saved successfully
                 lblMessage.Text = "Your file was uploaded successfully.";
+                lblMessage.ForeColor = System.Drawing.Color.Green;
+
+                tempfilename = fileName + extension;
+
+                fileName = tempfilename;
             }
 
             //Append the name of the file to the upload path
@@ -96,6 +90,11 @@ namespace BVH_Animation_Converter
 
                     btnContinue.Visible = true;
                 }
+            }
+            else
+            {
+                lblMessage.Text = "ERROR: no file has been submitted for upload";
+                lblMessage.ForeColor = System.Drawing.Color.Red;
             }
         }
 

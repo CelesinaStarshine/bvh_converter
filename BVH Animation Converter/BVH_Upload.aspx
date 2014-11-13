@@ -18,16 +18,16 @@
         <br />
         <br />
         Please upload your file here:<br />
-        <asp:FileUpload ID="FileUpload1" runat="server" />
+        <asp:FileUpload ID="FileUpload1" runat="server" style="margin-top: 2px" />
         <br />
-        <asp:Button ID="btnUpload" runat="server" Enabled="False" OnClick="btnUpload_Click" Text="Upload" />
+        <asp:Button ID="btnUpload" runat="server" OnClick="btnUpload_Click" style="margin-top: 6px" Text="Upload" />
         <br />
         <br />
         <asp:Button ID="btnContinue" runat="server" OnClick="btnContinue_Click" Text="Continue" Visible="False" />
         <br />
         <br />
         Click below in order to select from the community shared BVH files:<br />
-        <asp:Button ID="btnChoose" runat="server" OnClick="btnChoose_Click" Text="Choose" />
+        <asp:Button ID="btnChoose" runat="server" OnClick="btnChoose_Click" style="margin-top: 2px" Text="Choose" />
      
     </div>
     </form>

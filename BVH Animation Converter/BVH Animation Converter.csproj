@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BVH_Upload.aspx" />
+    <Content Include="Community.aspx" />
     <Content Include="Converter.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -85,6 +86,13 @@
     </Compile>
     <Compile Include="BVH_Upload.aspx.designer.cs">
       <DependentUpon>BVH_Upload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Community.aspx.cs">
+      <DependentUpon>Community.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Community.aspx.designer.cs">
+      <DependentUpon>Community.aspx</DependentUpon>
     </Compile>
     <Compile Include="Converter.aspx.cs">
       <DependentUpon>Converter.aspx</DependentUpon>
