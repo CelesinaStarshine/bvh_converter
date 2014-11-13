@@ -10,6 +10,13 @@
     <form id="form1" runat="server">
     <div>
      
+        Welcome to the BVH Animation Conversion System.<br />
+        First, please upload your BVH file below and then click on &quot;Continue&quot; when prompted.<br />
+        Otherwise, if you wish to use one of the community shared BVH files, then click on &quot;Choose&quot; instead.<br />
+        <br />
+        <asp:Label ID="lblMessage" runat="server"></asp:Label>
+        <br />
+     
     </div>
     </form>
 </body>
